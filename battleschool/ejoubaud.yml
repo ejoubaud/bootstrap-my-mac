@@ -1,0 +1,56 @@
+---
+- hosts: workstation
+
+  tasks:
+    - name: Install CLI apps with Homebrew
+      homebrew: name={{ item }} state=present
+      with_items:
+         - mackup
+         - rbenv
+         - ruby-build
+         - mysql
+         - gpg
+
+    - name: Install OSX apps with Cask
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+         - alfred
+         - bettertouchtool
+         - clipmenu
+         - firefox
+         - filezilla
+         - google-chrome
+         - licecap
+         - mplayerx
+         - selfcontrol
+         - skype
+         - sequel-pro
+         - vlc
+
+    - name: Install OSX apps that require root with Cask
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+         - karabiner
+         - seil
+         - virtualbox
+         - vagrant
+      sudo: yes
+
+    - name: Install Sublime plugins
+      git: repo=ssh://git@github.com/{{ item.name }}.git dest="~/Library/Application Support/Sublime Text/{{ item.source }}"
+      with_items:
+         - {name: SideBarEnhancements,        source: titoBouzout/SideBarEnhancements}
+         - {name: GitHubinator,               source: ehamiter/ST2-GitHubinator}
+         - {name: Shell-Turtlestein,          source: misfo/Shell-Turtlestein}
+         - {name: ExpandSelectionByParagraph, source: natew/ExpandSelectionByParagraph}
+         - {name: stringutilities,            source: akalongman/sublimetext-stringutilities}
+         - {name: ChangeQuotes,               source: colinta/SublimeChangeQuotes}
+         - {name: Puppet,                     source: russCloak/SublimePuppet}
+         - {name: Stylus,                     source: billymoon/Stylus}
+         - {name: Sass,                       source: nathos/sass-textmate-bundle}
+         - {name: Jade,                       source: davidrios/jade-tmbundle}
+         - {name: HAML,                       source: phuibonhoa/handcrafted-haml-textmate-bundle}
+         - {name: Better CoffeeScript,        source: aponxi/sublime-better-coffeescript}
+         - {name: SSH Config,                 source: robballou/sublimetext-sshconfig}
+         - {name: Cucumber,                   source: ejoubaud/cucumber-sublime-bundle} # TODO: Revert to original when tmerge the st3 branch to master, or when Boxen repository supports branch
+         - {name: cucumber-step-finder,       source: danielfrey/sublime-cucumber-step-finder }
