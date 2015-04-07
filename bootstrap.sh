@@ -1,10 +1,11 @@
 #!/bin/bash
 
 sudo easy_install pip
+sudo python -m easy_install pyyaml
 sudo pip install battleschool
 
 if [ ! -e ~/.battleschool ]; then
-  cp -r battlescool ~/.battleschool
+  cp -r battleschool ~/.battleschool
 else
   echo "~/.battleschool already exists"
 fi
