@@ -19,7 +19,7 @@ This current version also assumes you have an existing Mackup dump stored in `~/
 
 # Add users
 
-The bootstrap script will look for a playbook called like the current user, i.e. `$USER.yml`
+The bootstrap script will look for a playbook called like the current user, i.e. `playbooks/$USER.yml`
 
 # FAQ
 

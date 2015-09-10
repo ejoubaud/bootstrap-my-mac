@@ -3,12 +3,13 @@
 # Instal ansible if not already there
 which ansible &> /dev/null || brew install ansible
 
-if [ ! -f "$USER.yml" ]; then
-  echo "No playbook matching current user $USER" 1>&2
-  echo "You must provide a playbook matching current user in $PWD/$USER.yml" 1>&2
+playbook="playbooks/$USER.yml"
+if [ ! -f "$playbook" ]; then
+  echo "No playbook matching current user $playbook" 1>&2
+  echo "You must provide a playbook matching current user in $PWD/$playbook" 1>&2
   exit 1
 fi
-ansible-playbook -K -i 'localhost,' --connection=local "$USER.yml"
+ansible-playbook -K -i 'localhost,' --connection=local "$playbook"
 
 
 echo; echo
