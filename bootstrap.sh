@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo easy_install pip
-sudo pip install battleschool
+# Instal ansible if not already there
+which ansible &> /dev/null || brew install ansible
 
 if [ ! -e ~/.battleschool ]; then
   cp -r battlescool ~/.battleschool
