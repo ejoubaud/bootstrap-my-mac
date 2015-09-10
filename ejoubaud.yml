@@ -1,5 +1,5 @@
 ---
-- hosts: workstation
+- hosts: localhost
 
   tasks:
     - name: Install CLI apps with Homebrew

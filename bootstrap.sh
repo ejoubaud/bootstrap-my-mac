@@ -3,13 +3,13 @@
 # Instal ansible if not already there
 which ansible &> /dev/null || brew install ansible
 
-if [ ! -e ~/.battleschool ]; then
-  cp -r battlescool ~/.battleschool
-else
-  echo "~/.battleschool already exists"
+if [ ! -f "$USER.yml" ]; then
+  echo "No playbook matching current user $USER" 1>&2
+  echo "You must provide a playbook matching current user in $PWD/$USER.yml" 1>&2
+  exit 1
 fi
+ansible-playbook -K -i 'localhost,' --connection=local "$USER.yml"
 
-battle -K -C
 
 echo; echo
 echo "Feel free to launch Dropbox installer now. You'll need it sooner rather than later to restore Mackup config"
