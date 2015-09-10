@@ -1,6 +1,6 @@
 # My Battleschool
 
-Uses [Ansible](http://www.ansible.com/)-based [Battleschool](https://github.com/spencergibb/battleschool) and [Mackup](https://github.com/lra/mackup/) to bootstrap an OSX computer.
+Uses [Ansible](http://www.ansible.com/) and [Mackup](https://github.com/lra/mackup/) to bootstrap an OSX computer.
 
 # Usage
 
@@ -8,14 +8,18 @@ Uses [Ansible](http://www.ansible.com/)-based [Battleschool](https://github.com/
 git clone https://github.com/ejoubaud/bootstrap-my-mac
 cd bootstrap-my-mac
 # Prepare to type your sudo password and manually complete Dropbox install before Mackup is run
-./bootstrap-my-mac
+./bootstrap.sh
 ```
 
 # Requirements
 
-It assumes your Mac comes pre-installed with Python package manager `easy_install`, which it should (used to instal `pip`, which installs `battleschool`, which should install all the rest).
+It assumes your Mac has ansible or homebrew installed (it uses homebrew to install ansible if it's not there)
 
 This current version also assumes you have an existing Mackup dump stored in `~/Dropbox/Applications/Mackup` (or at least will have one once Dropbox is done installing and syncing through the process), though it *should* work fine without that.
+
+# Add users
+
+The bootstrap script will look for a playbook called like the current user, i.e. `playbooks/$USER.yml`
 
 # FAQ
 
