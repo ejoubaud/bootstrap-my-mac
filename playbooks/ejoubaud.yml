@@ -13,6 +13,14 @@
          - tmux
          - vim
 
+    - name: Install CLI apps with Homebrew install options
+      homebrew: name={{ item.name }} state=present install_options={{ item.options }}
+      with_items:
+         # Needed to copy/paste to system clipboard in tmux+VIM.
+         # You also need to add a line in the .tmux.config (see https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
+         # Mine is in my dotfiles
+         - {name: reattach-to-user-namespace, options: with-wrap-pbcopy-and-pbpaste}
+
     - name: Install OSX apps with Cask
       homebrew_cask: name={{ item }} state=present
       with_items:
