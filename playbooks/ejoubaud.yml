@@ -11,6 +11,7 @@
          - mysql
          - gpg
          - tmux
+         - vim
 
     - name: Install OSX apps with Cask
       homebrew_cask: name={{ item }} state=present
