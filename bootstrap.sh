@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if ! which brew &> /dev/null; then
+ echo "Homebrew required, please install it first" && exit 1
+fi
+
 # Instal ansible if not already there
 which ansible &> /dev/null || brew install ansible
 
