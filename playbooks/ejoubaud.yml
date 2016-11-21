@@ -40,15 +40,10 @@
          - sequel-pro
          - sublime-text
          - vlc
-
-    - name: Install OSX apps that require root with Cask
-      homebrew_cask: name={{ item }} state=present
-      with_items:
          - karabiner
          - seil
          - virtualbox
          - vagrant
-      sudo: yes
 
     - name: Install Sublime plugins
       git: repo=ssh://git@github.com/{{ item.name }}.git dest="~/Library/Application Support/Sublime Text/{{ item.source }}"
