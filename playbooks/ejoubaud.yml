@@ -5,6 +5,7 @@
     - name: Install CLI apps with Homebrew
       homebrew: name={{ item }} state=present
       with_items:
+         - ag
          - mackup
          - rbenv
          - ruby-build
