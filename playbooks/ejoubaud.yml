@@ -38,6 +38,7 @@
          - selfcontrol
          - skype
          - sequel-pro
+         - sublime-text
          - vlc
 
     - name: Install OSX apps that require root with Cask
