@@ -25,6 +25,7 @@
     - name: Install OSX apps with Cask
       homebrew_cask: name={{ item }} state=present
       with_items:
+         - airdroid
          - alfred
          - bettertouchtool
          - clipmenu
